@@ -18,3 +18,17 @@ func TestSomar(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestDiminuir(t *testing.T) {
+	funcaoSomar := func(a, b int) int {
+		return Diminuir(a, b)
+	}
+
+	err := quick.CheckEqual(funcaoSomar, func(a, b int) int {
+		return a - b
+	}, nil)
+
+	if err != nil {
+		t.Error(err)
+	}
+}
