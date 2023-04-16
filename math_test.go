@@ -1,10 +1,20 @@
 package main
 
-import "testing"
+import (
+	"testing"
+	"testing/quick"
+)
 
 func TestSomar(t *testing.T) {
-	total := Somar(15, 15)
-	if total != 30 {
-		t.Errorf("Resultado da soma incorreto. O esperado era %d", 30)
+	funcaoSomar := func(a, b int) int {
+		return Somar(a, b)
+	}
+
+	err := quick.CheckEqual(funcaoSomar, func(a, b int) int {
+		return a + b
+	}, nil)
+
+	if err != nil {
+		t.Error(err)
 	}
 }
