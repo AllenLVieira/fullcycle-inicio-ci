@@ -9,3 +9,7 @@ func main() {
 func Somar(a int, b int) int {
 	return a + b
 }
+
+func Diminuir(a int, b int) int {
+	return a - b
+}
